@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useLocation,
+} from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import Home from "./components/HeroSection";
 import ConcludedCases from "./pages/ConcludedCases";
@@ -14,11 +20,13 @@ function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between py-4 lg:py-0">
             <div className="flex items-center">
-              <img
-                src="/svg/2.svg"
-                alt="Moorbidge Cyber"
-                className="h-16 sm:h-20 lg:h-24"
-              />
+              <Link to="/">
+                <img
+                  src="/svg/2.svg"
+                  alt="Moorbidge Cyber"
+                  className="h-16 sm:h-20 lg:h-24 cursor-pointer"
+                />
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
@@ -28,7 +36,7 @@ function Navigation() {
                   CONCLUDED CASES
                 </button>
               </Link>
-              {location.pathname === '/' ? (
+              {location.pathname === "/" ? (
                 <a href="#footer-bottom">
                   <button className="border-2 border-[#172963] text-[#172963] hover:bg-[#172963] hover:text-white transition-all px-8 py-3 tracking-widest text-lg font-normal rounded-lg">
                     FILE A NEW CASE
@@ -72,7 +80,7 @@ function Navigation() {
                 CONCLUDED CASES
               </Link>
 
-              {location.pathname === '/' ? (
+              {location.pathname === "/" ? (
                 <a
                   href="#footer-bottom"
                   onClick={() => setIsMenuOpen(false)}
