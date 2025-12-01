@@ -37,7 +37,7 @@ function Navigation() {
                 </button>
               </Link>
               {location.pathname === "/" ? (
-                <a href="#footer-bottom">
+                <a href="/">
                   <button className="border-2 border-[#172963] text-[#172963] hover:bg-[#172963] hover:text-white transition-all px-8 py-3 tracking-widest text-lg font-normal rounded-lg">
                     FILE A NEW CASE
                   </button>
@@ -82,7 +82,7 @@ function Navigation() {
 
               {location.pathname === "/" ? (
                 <a
-                  href="#footer-bottom"
+                  href="/"
                   onClick={() => setIsMenuOpen(false)}
                   className="w-full block text-center border-2 border-[#172963] text-[#172963] hover:bg-[#172963] hover:text-white transition-all px-8 py-3 tracking-widest text-lg font-normal rounded-lg"
                 >
