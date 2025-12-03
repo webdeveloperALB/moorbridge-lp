@@ -15,93 +15,96 @@ function Navigation() {
   const location = useLocation();
 
   return (
-    <>
-      <nav className="border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between py-4 lg:py-0">
-            <div className="flex items-center">
-              <Link to="/">
-                <img
-                  src="/svg/2.svg"
-                  alt="Moorbidge Cyber"
-                  className="h-16 sm:h-20 lg:h-24 cursor-pointer"
-                />
-              </Link>
-            </div>
-
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-4">
-              <Link to="/concluded-cases">
-                <button className="border-2 border-[#172963] text-[#172963] hover:bg-[#172963] hover:text-white transition-all px-8 py-3 tracking-widest text-lg font-normal rounded-lg">
-                  CONCLUDED CASES
-                </button>
-              </Link>
-              {location.pathname === "/" ? (
-                <a href="/">
-                  <button className="border-2 border-[#172963] text-[#172963] hover:bg-[#172963] hover:text-white transition-all px-8 py-3 tracking-widest text-lg font-normal rounded-lg">
-                    FILE A NEW CASE
-                  </button>
-                </a>
-              ) : (
-                <Link to="/">
-                  <button className="border-2 border-[#172963] text-[#172963] hover:bg-[#172963] hover:text-white transition-all px-8 py-3 tracking-widest text-lg font-normal rounded-lg">
-                    FILE A NEW CASE
-                  </button>
-                </Link>
-              )}
-            </div>
-
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 text-[#172963]"
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </button>
+    <nav className="border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between py-4 lg:py-0">
+          <div className="flex items-center">
+            <Link to="/">
+              <img
+                src="/svg/2.svg"
+                alt="Moorbidge Cyber"
+                className="h-16 sm:h-20 lg:h-24 cursor-pointer"
+              />
+            </Link>
           </div>
 
-          {/* Mobile Navigation */}
-          <div
-            className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-              isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-            }`}
+          <div className="hidden lg:flex items-center space-x-4">
+            <Link to="/concluded-cases">
+              <button className="border-2 border-[#172963] text-[#172963] hover:bg-[#172963] hover:text-white transition-all px-8 py-3 tracking-widest text-lg font-normal rounded-lg">
+                CONCLUDED CASES
+              </button>
+            </Link>
+            {location.pathname === "/" ? (
+              <a href="#contact-form">
+                <button className="border-2 border-[#172963] text-[#172963] hover:bg-[#172963] hover:text-white transition-all px-8 py-3 tracking-widest text-lg font-normal rounded-lg">
+                  FILE A NEW CASE
+                </button>
+              </a>
+            ) : (
+              <Link to="/">
+                <button className="border-2 border-[#172963] text-[#172963] hover:bg-[#172963] hover:text-white transition-all px-8 py-3 tracking-widest text-lg font-normal rounded-lg">
+                  FILE A NEW CASE
+                </button>
+              </Link>
+            )}
+          </div>
+
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden p-2 text-[#172963]"
+            aria-label="Toggle menu"
           >
-            <div className="pb-4 space-y-3 pt-2">
-              <Link
-                to="/concluded-cases"
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
+        </div>
+
+        <div
+          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="pb-4 space-y-3 pt-2">
+            <Link
+              to="/concluded-cases"
+              onClick={() => setIsMenuOpen(false)}
+              className="w-full block text-center border-2 border-[#172963] text-[#172963] hover:bg-[#172963] hover:text-white transition-all px-8 py-3 tracking-widest text-lg font-normal rounded-lg"
+            >
+              CONCLUDED CASES
+            </Link>
+
+            {location.pathname === "/" ? (
+              <a
+                href="#contact-form"
                 onClick={() => setIsMenuOpen(false)}
                 className="w-full block text-center border-2 border-[#172963] text-[#172963] hover:bg-[#172963] hover:text-white transition-all px-8 py-3 tracking-widest text-lg font-normal rounded-lg"
               >
-                CONCLUDED CASES
+                FILE A NEW CASE
+              </a>
+            ) : (
+              <Link
+                to="/"
+                onClick={() => setIsMenuOpen(false)}
+                className="w-full block text-center border-2 border-[#172963] text-[#172963] hover:bg-[#172963] hover:text-white transition-all px-8 py-3 tracking-widest text-lg font-normal rounded-lg"
+              >
+                FILE A NEW CASE
               </Link>
+            )}
 
-              {location.pathname === "/" ? (
-                <a
-                  href="/"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="w-full block text-center border-2 border-[#172963] text-[#172963] hover:bg-[#172963] hover:text-white transition-all px-8 py-3 tracking-widest text-lg font-normal rounded-lg"
-                >
-                  FILE A NEW CASE
-                </a>
-              ) : (
-                <Link
-                  to="/"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="w-full block text-center border-2 border-[#172963] text-[#172963] hover:bg-[#172963] hover:text-white transition-all px-8 py-3 tracking-widest text-lg font-normal rounded-lg"
-                >
-                  FILE A NEW CASE
-                </Link>
-              )}
-            </div>
+            <Link
+              to="/admin"
+              onClick={() => setIsMenuOpen(false)}
+              className="w-full block text-center border-2 border-[#172963] bg-[#172963] text-white hover:bg-[#0f1d42] transition-all px-8 py-3 tracking-widest text-lg font-normal rounded-lg"
+            >
+              ADMIN
+            </Link>
           </div>
         </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 }
 

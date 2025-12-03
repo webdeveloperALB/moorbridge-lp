@@ -53,9 +53,33 @@ export default function HeroSection() {
     }
 
     try {
-      console.log("Form submitted:", formData);
+      const [firstName, ...lastNameParts] = formData.fullName.trim().split(" ");
+      const lastName = lastNameParts.join(" ") || "";
 
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const response = await fetch(
+        "https://kwiuzntxxsmezjgswact.functions.supabase.co/leads",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": "T1APRD7PKIC8K7VUNI4D50FBTKXSCSUQ",
+          },
+          body: JSON.stringify({
+            firstName: firstName || "",
+            lastName: lastName,
+            email: formData.email,
+            phone: formData.phoneNumber,
+            country: "Canada",
+            brand: "Moorbridge Cyber",
+            funnel: formData.scamType,
+            source_id: formData.amount,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
 
       setSubmitStatus("success");
       setFormData({
